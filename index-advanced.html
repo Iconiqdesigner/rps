@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rock Paper Scissors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Eczar:500" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="text/javascript" src="js/rps.js"></script>
+</head>
+
+<body>
+  <main id="rps-game" class="game-wrapper">
+    <section class="kickoff">
+      <button class="btn btn-primary" id="play-game" onclick="runProgram();">Would you like to play a game?</button>
+    </section>
+
+    <section class="game-results">
+      <h1 id="scorekeeper">The results of each game will be logged here after the game.</h1>
+      <section class="choice-container">
+        <h2>YOU</h2>
+        <ul class="choice-list" id="user-choices">
+        </ul>
+      </section>
+      <section class="choice-container">
+        <h2>COMPUTER</h2>
+        <ul class="choice-list" id="computer-choices">
+        </ul>
+      </section>
+      <section class="result-container">
+        <h2>WINNER</h2>
+        <ul class="results-list" id="match-results">
+        </ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

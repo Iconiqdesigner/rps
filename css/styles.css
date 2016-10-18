@@ -1,0 +1,107 @@
+html {
+  margin: 0;
+  padding: 0;
+  background: url("../images/bkg_body.jpg") center no-repeat;
+  background-attachment: fixed;
+  font-size: 62.5%;
+  min-height: 100%;
+}
+
+body {
+  padding: 5rem;
+  text-align: center;
+  font-family: 'Eczar', 'Georgia', serif;
+  background-size: cover;
+  color: white;
+}
+
+h1 { font-size: 2.8rem; }
+
+.game-wrapper {
+  background: rgba(0,0,0,0.7);
+  padding: 5rem 2rem;
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
+  min-height: 50rem;
+}
+
+.choice-container, .result-container {
+  display: inline-block;
+  margin: 1.5rem;
+  vertical-align: top;
+  width: 15%;
+}
+
+.result-container {
+  width: 30%;
+}
+
+.results-list, .choice-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.choice-list li, .results-list li {
+  width: 100%;
+  padding-top: 100%;
+  margin: 0 0 3rem 0;
+}
+
+.results-list li {
+  padding-top: 50%;
+}
+
+/* List Item Styles */
+li.throws-rock, li.throws-paper, li.throws-scissor, li.throws-win, li.throws-loss, li.throws-tie {
+  background-image: url("../images/ic_rock.svg");
+  background-size: contain;
+}
+
+li.throws-paper {
+  background-image: url("../images/ic_paper.svg");
+}
+
+li.throws-scissor {
+  background-image: url("../images/ic_scissors.svg");
+}
+
+li.throws-win {
+  background-image: url("../images/ic_win.svg");
+}
+
+li.throws-loss {
+  background-image: url("../images/ic_lose.svg");
+}
+
+li.throws-tie {
+  background-image: url("../images/ic_tie.svg");
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  font-size: 3rem;
+  border: .2rem solid white;
+  color: white;
+  background: transparent;
+  border-radius: .2rem;
+  padding: .5rem 2.5rem 0rem 2.5rem;
+  box-shadow: 0 .3rem 0 transparent;
+  position: relative;
+}
+
+.btn:active {
+  top: .3rem;
+  box-shadow: none;
+}
+
+.btn-primary {
+  border-color: transparent;
+  background: white;
+  color: #666;
+  box-shadow: 0 .3rem 0 #ccc;
+  font-family: 'Eczar', 'Georgia', serif;
+}

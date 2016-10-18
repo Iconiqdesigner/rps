@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rock Paper Scissors</title>
+</head>
+
+<body>
+
+<button class="btn btn-primary" id="play-game">Would you like to play a game?</button>
+
+<script type="text/javascript">
+
+document.getElementById('play-game').onclick = runProgram;
+
+//RUN THE PROGRAM
+function runProgram() {
+  var gameLimit = setNumGames();
+
+  var currentGame = 1;
+  while (currentGame <= gameLimit) {
+    var userChoice = getUserSelection(currentGame);
+    var computerChoice = getCompSelection();
+    var winner = getWinner(computerChoice, userChoice);
+    alert(winner);
+    console.log(winner);
+    currentGame++
+  }
+}
+
+//LET THE USER SET A SPECIFIC NUMBER OF GAMES TO PLAY
+function setNumGames() {
+  //Ask the user if they want to play
+  numOfGames = prompt("How many games of Rock, Paper, Scissors would you like to play?");
+  //If they hit cancel
+  if (numOfGames === null) {
+    return;
+  }
+  //Turn the value into a number
+  numOfGames = parseInt(numOfGames, 10);
+  //If check if the value is NaN
+  if (isNaN(numOfGames)) {
+    while (isNaN(numOfGames)) {
+      //Ask them again
+      var numOfGames = prompt("Sorry, we need your answer as a number, how many games of Rock, Paper, Scissors would you like to play?");
+      //If they cancel
+      if (numOfGames === null) { break; }
+      //Turn their value into a number and do it all again
+      numOfGames = parseInt(numOfGames, 10);
+    }
+  }
+  return numOfGames;
+}
+
+//Turn plurals to singular
+function formatUserResponse(response) {
+  response = response.trim().toLowerCase();
+
+  var lastLetter = response.length -1 ;
+  if(response.charAt(lastLetter) === "s") {
+    response = response.slice(0, lastLetter);
+  }
+  var singularResponse = response;
+  return singularResponse;
+
+}
+
+function getUserSelection(gameNumber) {
+  var checkSelection = prompt("Make your choice for game " + gameNumber + ". Choose 'rock', 'paper', or 'scissors'.");
+  checkSelection = formatUserResponse(checkSelection);
+  //If the user makes any selection other than Rock, rock, Paper, paper, Scissors, or scissors
+  if ((checkSelection != "rock") && (checkSelection != "paper") && (checkSelection != "scissor")) {
+    //Keep asking until they either cancel or give the right answer
+    while (checkSelection != "rock" && checkSelection != "paper" && checkSelection != "scissors") {
+      var checkSelection = prompt("Sorry, you have to choose 'rock', 'paper', or 'scissors'.");
+      checkSelection = formatUserResponse(checkSelection);
+    }
+    //ENDWHILE
+  }
+  //ENDIF
+  //Returns the value of checkSelection
+  return checkSelection;
+}
+
+function getCompSelection() {
+  //Setup an array of all the possible choices the computer could make
+  var availableOptions = ["rock", "paper", "scissors"];
+  //Return a random value from the array
+  var computerChoice = availableOptions[Math.floor(Math.random() * availableOptions.length)];
+  return computerChoice;
+}
+
+function getWinner(computerChoice, userChoice) {
+
+  if (computerChoice === userChoice) {
+    return "The computer chose " + computerChoice + " you chose " + userChoice + ". Its a tie!"
+  } else if (computerChoice === "rock") {
+    return (userChoice === "paper" ) ? "The computer chose " + computerChoice + " and you chose " + userChoice + ". YOU WIN!" : "The computer chose " + computerChoice + " and you chose " + userChoice + ". The computer wins. :(";
+  }  else if (computerChoice === "paper") {
+    return (userChoice === "scissors" ) ? "The computer chose " + computerChoice + " and you chose " + userChoice + ". YOU WIN!" : "The computer chose " + computerChoice + " and you chose " + userChoice + ". The computer wins. :(";
+  }  else {
+    return (userChoice === "rock" ) ? "The computer chose " + computerChoice + " and you chose " + userChoice + ". YOU WIN!" : "The computer chose " + computerChoice + " and you chose " + userChoice + ". The computer wins. :(";
+  }
+
+}
+</script>
+
+</body>
+</html>
